@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item List</title>
+</head>
+<body>
+    <h1>Item List</h1>
+    <ul>
+        {% for item in items %}
+            <li>{{ item.name }} - ${{ item.price }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add Item</h2>
+    <form action="/add_item" method="post">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
+        
+        <label for="price">Price:</label>
+        <input type="number" name="price" step="0.01" required>
+        
+        <button type="submit">Add Item</button>
+    </form>
+</body>
+</html>
